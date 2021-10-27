@@ -50,7 +50,7 @@
             <div class="col text-right">
                 <h1>Cryptoquote</h1>
             </div>
-            <div class="col text-left">
+            <div class="col text-left align-self-center">
                 <a href="/start" class="btn btn-danger">
                     New Game
                 </a>
@@ -114,7 +114,7 @@
                         
                             <div class="col">
                                     <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                        Apply
+                                        Swap
                                     </button>
                                 </div>
                     </div>
