@@ -1,5 +1,6 @@
 import urllib.request as r
 import random
+import os
 from html.parser import HTMLParser
 from html.entities import name2codepoint
 from bottle import route, run, debug, template, request, post, get, redirect
@@ -111,3 +112,5 @@ def play():
             pass
         letter_map_user[letter_from] = letter_to
     return home()
+
+run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
