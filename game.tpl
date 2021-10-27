@@ -90,7 +90,7 @@
                                   <label for="letter-from-{{key}}">
                                       <input type="radio" class="letter-radio" name="letterfrom" id="letter-from-{{key}}"
                                           value="{{key}}">
-                                      <span>{{key}}</span></span>
+                                      <span>{{key}}</span>
                                   </label>
                               </div>
                             %end
@@ -104,7 +104,7 @@
                                   <label for="letter-to-{{value}}">
                                       <input type="radio" class="letter-radio" name="letterto" id="letter-to-{{value}}"
                                           value="{{value}}">
-                                      <span>{{value}}</span></span>
+                                      <span>{{value}}</span>
                                   </label>
                               </div>
                             %end
