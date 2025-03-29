@@ -97,13 +97,10 @@ def home():
     decoded_quote = ''.join([letter_map_user.get(letter, letter)
                              for letter in list(encoded_quote)])
     if decoded_quote == current_quote:
-        game_active = False
         return template("end_game", quote=current_quote)
 
-    output = template('game', keys=letter_map_user.keys(),
+    return template('game', keys=letter_map_user.keys(),
                       values=letter_map_user, quote=encoded_quote)
-    return output
-
 
 @post('/')
 def play():
