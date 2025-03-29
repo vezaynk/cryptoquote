@@ -41,8 +41,12 @@
           display: inline-block;
         }
 
-        :invalid button {
-            visibility: hidden;
+        :invalid .real-button  {
+            display: none;
+        }
+
+        :valid .fake-button {
+            display: none;
         }
 
         label {
@@ -59,8 +63,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-8">             
-                <div class="card mb-4 box-shadow">
+            <div class="col-xl-8 pb-4">             
+                <div class="card h-100 box-shadow">
                     <div class="card-header">
                         <div class="row">
                             <div class="col text-left">
@@ -90,8 +94,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4">
-                <form method="POST" class="card mb-4 box-shadow">
+            <div class="col-xl-4 pb-4">
+                <form method="POST" class="card h-100 box-shadow">
                     <div class="card-header">
                         <h2 class="my-0 font-weight-normal">Decoder</h2>
                     </div>
@@ -125,12 +129,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            
-                                <div class="col">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                            Swap
-                                        </button>
-                                    </div>
+                            <div class="col">
+                                <button type="submit" class="real-button btn btn-primary btn-lg btn-block">
+                                    Swap
+                                </button>
+                                <button type="submit" disabled class="fake-button btn btn-lg btn-block">
+                                    Pick two letters to swap
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
