@@ -3,6 +3,9 @@
 ![Screenshot](https://github.com/user-attachments/assets/14de7fb1-bb20-45ad-bb5b-5e7c247de86a)
 
 
+https://github.com/user-attachments/assets/8b6b2a41-78ab-47d0-b2cc-715c85449ae9
+
+
 The project is a cryptoquote game. Replace the letters to find the hidden message.
 
 The messages are scraped from [SmartWords.org](https://www.smart-words.org/quotes-sayings/famous-one-liners.html) and shuffled when the game starts.
