@@ -3,7 +3,7 @@ import random
 import os
 from html.parser import HTMLParser
 from html.entities import name2codepoint
-from bottle import route, run, debug, template, request, post, get, redirect
+from bottle import route, run, debug, template, request, post, get, redirect, static_file
 import string
 
 
@@ -87,6 +87,9 @@ def start():
     init_game()
     redirect('/')
 
+@route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='static')
 
 @get('/')
 def home():
@@ -97,6 +100,7 @@ def home():
     decoded_quote = ''.join([letter_map_user.get(letter, letter)
                              for letter in list(encoded_quote)])
     if decoded_quote == current_quote:
+        game_active = False
         return template("end_game", quote=current_quote)
 
     return template('game', keys=letter_map_user.keys(),
