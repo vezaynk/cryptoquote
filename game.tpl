@@ -14,6 +14,10 @@
 
     <title>Cryptoquote</title>
     <style>
+        body {
+            font-monospace;
+        }
+
         .letter-box .letter-radio:checked~span {
             font-weight: bold;
             color: #333;
@@ -35,12 +39,15 @@
 
         .blockquote label {
             cursor: pointer;
+            white-space: preserve nowrap;
         }
         .letter-box {
-
           display: inline-block;
+        }
 
-          }
+        :invalid button {
+            display: none;
+        }
     </style>
 </head>
 
@@ -57,8 +64,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <h2>Quote</h2>
+            <div class="col-sm">
+                <h2>Incoming message...</h2>
                 <h3>Input</h3>
                 <blockquote class="blockquote">
                     <p>
@@ -75,7 +82,7 @@
                     %end
                 </blockquote>
             </div>
-            <div class="col">
+            <div class="col-sm">
                 <form method="POST">
                     <div class="row">
                         <div class="col">
@@ -88,7 +95,7 @@
                             %for key in keys:
                               <div class="radio letter-box">
                                   <label for="letter-from-{{key}}">
-                                      <input type="radio" class="letter-radio" name="letterfrom" id="letter-from-{{key}}"
+                                      <input type="radio" required class="letter-radio" name="letterfrom" id="letter-from-{{key}}"
                                           value="{{key}}">
                                       <span>{{key}}</span>
                                   </label>
@@ -102,7 +109,7 @@
                             %for value in keys:
                               <div class="radio letter-box">
                                   <label for="letter-to-{{value}}">
-                                      <input type="radio" class="letter-radio" name="letterto" id="letter-to-{{value}}"
+                                      <input type="radio" required class="letter-radio" name="letterto" id="letter-to-{{value}}"
                                           value="{{value}}">
                                       <span>{{value}}</span>
                                   </label>
