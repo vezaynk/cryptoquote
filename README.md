@@ -21,6 +21,8 @@ pip install -r requirements.txt
 PORT=5000 python ./Cryptoquote.py
 ```
 
+The game does not have individual user sessions. So for the live deploy, I disabled the "start new game" functionality to avoid rogue users ending in-progress games.
+
 # Live Demo
 
 The project is deployed on Heroku here: https://cryptoquote.knyz.org/
