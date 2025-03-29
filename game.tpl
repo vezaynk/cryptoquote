@@ -14,10 +14,6 @@
 
     <title>Cryptoquote</title>
     <style>
-        body {
-            font-monospace;
-        }
-
         .letter-box .letter-radio:checked~span {
             font-weight: bold;
             color: #333;
@@ -46,7 +42,11 @@
         }
 
         :invalid button {
-            display: none;
+            visibility: hidden;
+        }
+
+        label {
+            font-family: monospace;
         }
     </style>
 </head>
@@ -54,94 +54,89 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col text-right">
+            <div class="col text-center">
                 <h1>Cryptoquote</h1>
-            </div>
-            <div class="col text-left align-self-center">
-                <a href="/start" class="btn btn-danger">
-                    New Game
-                </a>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm">
-                <h2>Incoming message...</h2>
-                <h3>Input</h3>
-                <blockquote class="blockquote">
-                    <p>
-                      %for letter in quote:
-                            <label for="letter-from-{{letter}}">{{letter}}</label>
-                      %end
-                    </p>
-                </blockquote>
-                <h3>Output</h3>
-                <blockquote class="blockquote">
-                    %for letter in quote:
-                      %output = values.get(letter, letter)
-                            <label for="letter-from-{{letter}}">{{output}}</label>
-                    %end
-                </blockquote>
+            <div class="col-xl-8">             
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col text-left">
+                                <h2 class="my-0 font-weight-normal">Incoming Message</h2>
+                            </div>
+                            <div class="col text-right">
+                                <a href="/start" class="btn btn-danger">New Game</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Input</h1>
+                        <blockquote class="blockquote">
+                            <p>
+                            %for letter in quote:
+                                    <label for="letter-from-{{letter}}">{{letter}}</label>
+                            %end
+                            </p>
+                        </blockquote>
+                        <h3>Output</h3>
+                        <blockquote class="blockquote">
+                            %for letter in quote:
+                            %output = values.get(letter, letter)
+                                    <label for="letter-from-{{letter}}">{{output}}</label>
+                            %end
+                        </blockquote>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm">
-                <form method="POST">
-                    <div class="row">
-                        <div class="col">
-                            <h2>Letters</h2>
-                        </div>
+            <div class="col-xl-4">
+                <form method="POST" class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h2 class="my-0 font-weight-normal">Decoder</h2>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <h3>From</h3>
-                            %for key in keys:
-                              <div class="radio letter-box">
-                                  <label for="letter-from-{{key}}">
-                                      <input type="radio" required class="letter-radio" name="letterfrom" id="letter-from-{{key}}"
-                                          value="{{key}}">
-                                      <span>{{key}}</span>
-                                  </label>
-                              </div>
-                            %end
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h3>To</h3>
-                            %for value in keys:
-                              <div class="radio letter-box">
-                                  <label for="letter-to-{{value}}">
-                                      <input type="radio" required class="letter-radio" name="letterto" id="letter-to-{{value}}"
-                                          value="{{value}}">
-                                      <span>{{value}}</span>
-                                  </label>
-                              </div>
-                            %end
-                        </div>
-                    </div>
-                    <div class="row">
-                        
+                    <div class="card-body text-center">
+                        <div class="row">
                             <div class="col">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                        Swap
-                                    </button>
+                                <h3>From</h3>
+                                %for key in keys:
+                                <div class="radio letter-box">
+                                    <label for="letter-from-{{key}}">
+                                        <input type="radio" required class="letter-radio" name="letterfrom" id="letter-from-{{key}}"
+                                            value="{{key}}">
+                                        <span>{{key}}</span>
+                                    </label>
                                 </div>
+                                %end
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3>To</h3>
+                                %for value in keys:
+                                <div class="radio letter-box">
+                                    <label for="letter-to-{{value}}">
+                                        <input type="radio" required class="letter-radio" name="letterto" id="letter-to-{{value}}"
+                                            value="{{value}}">
+                                        <span>{{value}}</span>
+                                    </label>
+                                </div>
+                                %end
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                                <div class="col">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                            Swap
+                                        </button>
+                                    </div>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
