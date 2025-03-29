@@ -70,9 +70,9 @@
                             <div class="col text-left">
                                 <h2 class="my-0 font-weight-normal">Incoming Message</h2>
                             </div>
-                            <div class="col text-right">
+                            <!-- <div class="col text-right">
                                 <a href="/start" class="btn btn-danger">New Game</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="card-body text-center">

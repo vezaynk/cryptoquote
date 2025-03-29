@@ -55,6 +55,12 @@ game_active = False
 def init_game():
     global current_quote, current_quote, quotes, encoded_quote
     global letter_map_game, letter_map_user, game_active
+
+    # Disable starting new game until
+    # current game is finished.
+    if game_active:
+        return
+
     try:
         current_quote = next(quotes).upper()
     except StopIteration:
