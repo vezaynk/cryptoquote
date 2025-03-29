@@ -1,6 +1,7 @@
 # Cryptoquote
 
-![Screenshot](./cryptoquote.png)
+![Screenshot](https://github.com/user-attachments/assets/14de7fb1-bb20-45ad-bb5b-5e7c247de86a)
+
 
 The project is a cryptoquote game. Replace the letters to find the hidden message.
 
@@ -21,7 +22,7 @@ pip install -r requirements.txt
 PORT=5000 python ./Cryptoquote.py
 ```
 
-The game does not have individual user sessions. So for the live deploy, I disabled the "start new game" functionality to avoid rogue users ending in-progress games.
+The game does not have individual user sessions. So, for the live deploy, I disabled the "start new game" functionality to prevent rogue users from ending in-progress games. This change can be reverted in the code.
 
 # Live Demo
 
